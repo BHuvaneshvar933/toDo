@@ -65,19 +65,19 @@ function App() {
   });
 
   return (
-    <div className="overflow-y: auto">
+    <div className="overflow-y: auto max-lg::w-full max-lg:w-full ">
       <NavBar />
-      <div className="w-2/3 h-4/5  mx-auto my-14 overflow-y: auto ">
+      <div className="w-2/3 h-4/5  mx-auto my-14 overflow-y: auto lg:text-sm max-lg:mx-0 max-lg:w-3/4">
         <Heading />
-        <div className="absolute">
+        <div className="absolute max-sm:w-full items-center">
           <Input />
-          <div className="ml-16">
+          <div className="ml-16 max-lg:ml-28 ">
             <button
               className={
                 "" +
                 (!isCompleteScreen
                   ? "bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 "
-                  : "bg-neutral-900 h-10 border border-neutral-700 py-2 px-4")
+                  : "bg-neutral-900 h-10 border border-neutral-700 py-2 px-4 max-lg:-ml-4")
               }
               value="active"
               onClick={() => setIsCompleteScreen(false)}
@@ -95,7 +95,7 @@ function App() {
               Completed
             </button>
           </div>
-          <div className=" w-11/12 ml-9 rounded mb-3 overflow-hidden">
+          <div className=" w-11/12 ml-9 rounded mb-3 overflow-hidden max-sm:ml-4  max-lg:ml-16">
             {isCompleteScreen === false &&
               allTodos.map((item, index) => {
                 return (
