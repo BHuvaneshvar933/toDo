@@ -10,9 +10,5 @@
   background-color: rgb(0, 230, 122);
 }
 
-  @media not all and (min-width: 1024px) {
-    #sec{
-      margin-left:30px;
-    }
-}
+
 
