@@ -54,7 +54,7 @@ const Input = () => {
             placeholder="Description"
           />
         </div>
-        <div className="max-lg:flex max-lg:flex-row">
+        <div className="max-lg:flex max-lg:flex-row space-x-4">
         <div className="input-item mt-5 ml-16 max-lg:ml-0 max-lg:flex max-lg:flex-row">
           <button
             type="submit"
