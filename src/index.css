@@ -9,10 +9,10 @@
 .active {
   background-color: rgb(0, 230, 122);
 }
-#sec{
+
   @media not all and (min-width: 1024px) {
-    
-        margin-left: 30px /* 128px */;
-    
+    #sec{
+      margin-left:30px;
+    }
 }
-}
+
