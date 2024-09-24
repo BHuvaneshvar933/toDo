@@ -71,7 +71,7 @@ function App() {
         <Heading />
         <div className="absolute max-sm:w-full items-center">
           <Input />
-          <div className="ml-16 max-lg:ml-28 ">
+          <div className="ml-16 max-lg:ml-32 ">
             <button
               className={
                 "" +
