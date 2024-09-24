@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Trash2, Check } from "lucide-react";
+import NavBar from "./components/NavBar";
+import Heading from "./components/Heading";
+import Input from "./components/Input";
 
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
@@ -11,17 +14,6 @@ function App() {
   const [completedTodos, setCompletedTodos] = useState([]);
   const [input, setInput] = useState(newDesc);
 
-  const handleAddToDo = () => {
-    let newToDoItem = {
-      title: newTitle,
-      desc: newDesc,
-    };
-    let updateToDoArr = [...allTodos];
-    updateToDoArr.push(newToDoItem);
-    setAllTodos(updateToDoArr);
-    localStorage.setItem("todolist", JSON.stringify(updateToDoArr));
-    setInput("");
-  };
   useEffect(() => {
     let savedToDO = JSON.parse(localStorage.getItem("todolist"));
     if (savedToDO) {
@@ -74,59 +66,11 @@ function App() {
 
   return (
     <div className="overflow-y: auto">
-      <div className="bg-black py-3 sticky top-0 z-50  backdrop-blur-lg border-b border-neutral-700/80">
-        <div className="text-center">
-          <span className=" text-4xl tracking-tigth bg-gradient-to-r from-orange-500 to-red-800 text-transparent  bg-clip-text">
-            toDo
-          </span>
-        </div>
-      </div>
-      <div className="w-2/3 border border-white mx-auto my-14 overflow-y: auto bg-neutral-950">
-        <h1 className="text-center text-4xl mt-10">
-          TO{" "}
-          <span className="bg-gradient-to-r from-orange-500 to-red-800 text-transparent  bg-clip-text">
-            DO
-          </span>{" "}
-          List
-        </h1>
-        <div className="wrapper">
-          <div className="flex flex-row items-center  p-5 mt-10 ">
-            <form className="flex flex-row">
-              <div className="flex flex-col">
-                <label>Title</label>
-                <input
-                  type="text"
-                  onChange={(e) => setNewTitle(e.target.value)}
-                  className="w-80 rounded placeholder- bg-neutral-900  text-sm h-8"
-                  placeholder="enter your task here"
-                />
-              </div>
-              <div className="flex flex-col ml-3">
-                <label>Description</label>
-                <input
-                  type="text"
-                  placeholder="Description"
-                  onChange={(e) => setNewDesc(e.target.value)}
-                  className="w-80 rounded bg-neutral-900 text-sm h-8"
-                />
-              </div>
-
-              <div className="input-item  mt-5 ml-16 ">
-                <button
-                  type="button"
-                  onClick={handleAddToDo}
-                  className="text-center bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 rounded-md"
-                >
-                  Add
-                </button>
-              </div>
-              <input
-                type="reset"
-                value="Reset"
-                className="mt-5 py-1 px-2 border rounded-md ml-2"
-              />
-            </form>
-          </div>
+      <NavBar />
+      <div className="w-2/3 h-4/5  mx-auto my-14 overflow-y: auto ">
+        <Heading />
+        <div className="absolute">
+          <Input />
           <div className="ml-16">
             <button
               className={
@@ -179,7 +123,7 @@ function App() {
                   </div>
                 );
               })}
-
+            {<value />}
             {isCompleteScreen === true &&
               completedTodos.map((item, index) => {
                 return (
