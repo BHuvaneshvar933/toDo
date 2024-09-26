@@ -26,7 +26,7 @@ const Input = () => {
   };
 
   return (
-    <div className="flex flex-row items-center p-5 mt-10 max-lg:items-center max-lg:w-full max-lg:ml-14 max-sm:-ml-0">
+    <div className="items-center p-5 mt-10 max-lg:items-center max-lg:w-full  max-sm:ml-56 ml-64 w-full">
       <form
         className="flex flex-row max-sm:flex-col max-lg:items-center max-lg:w-full"
         onSubmit={(e) => {
@@ -54,26 +54,27 @@ const Input = () => {
             placeholder="Description"
           />
         </div>
+        <div className="max-lg:flex max-l:flex-row space-x-4 flex flex-row">
+          <div className="input-item mt-5 ml-16 max-lg:ml-0 max-lg:flex max-lg:flex-row">
+            <button
+              type="submit"
+              className="text-center bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 rounded-md"
+            >
+              Add
+            </button>
+          </div>
 
-        <div className="input-item mt-5 ml-16 max-lg:ml-0 max-lg:flex max-lg:flex-row">
           <button
-            type="submit"
-            className="text-center bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 rounded-md"
+            type="button"
+            onClick={() => {
+              setNewTitle("");
+              setNewDesc("");
+            }}
+            className="mt-5 py-1 px-2 border rounded-md ml-2 max-lg:ml-0"
           >
-            Add
+            Reset
           </button>
         </div>
-
-        <button
-          type="button"
-          onClick={() => {
-            setNewTitle("");
-            setNewDesc("");
-          }}
-          className="mt-5 py-1 px-2 border rounded-md ml-2 max-lg:ml-0"
-        >
-          Reset
-        </button>
       </form>
     </div>
   );
