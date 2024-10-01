@@ -54,27 +54,26 @@ const Input = () => {
             placeholder="Description"
           />
         </div>
-        <div className="max-lg:flex max-l:flex-row space-x-4 flex flex-row">
-          <div className="input-item mt-5 ml-16 max-lg:ml-0 max-lg:flex max-lg:flex-row">
-            <button
-              type="submit"
-              className="text-center bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 rounded-md"
-            >
-              Add
-            </button>
-          </div>
 
+        <div className="input-item mt-5 ml-16 max-lg:ml-0 max-lg:flex max-lg:flex-row">
           <button
-            type="button"
-            onClick={() => {
-              setNewTitle("");
-              setNewDesc("");
-            }}
-            className="mt-5 py-1 px-2 border rounded-md ml-2 max-lg:ml-0"
+            type="submit"
+            className="text-center bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 rounded-md"
           >
-            Reset
+            Add
           </button>
         </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            setNewTitle("");
+            setNewDesc("");
+          }}
+          className="mt-5 py-1 px-2 border rounded-md ml-2 max-lg:ml-0"
+        >
+          Reset
+        </button>
       </form>
     </div>
   );
