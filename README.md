@@ -27,8 +27,11 @@ This is a simple and intuitive to-do list application where users can add, edit,
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
 2. Navigate to the project directory:
-   ```cd your-repo-name
+   ```bash
+   cd your-repo-name
 3. Install dependencies:
-   ```npm install
+   ```bash
+   npm install
 3. Start the development server:
-   ```npm run dev
+   ```bash
+   npm run dev
