@@ -5,7 +5,6 @@ This is a simple and intuitive to-do list application where users can add, edit,
 ## Features
 - Add new tasks to the list
 - Mark tasks as completed
-- Edit existing tasks
 - Delete tasks from the list
 - Save tasks to local storage, so data persists even after page reloads
 
