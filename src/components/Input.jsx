@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const Input = () => {
-  const [allTodos, setAllTodos] = useState([]);
+const Input = ({ setAllTodos }) => {
   const [newTitle, setNewTitle] = useState("");
   const [newDesc, setNewDesc] = useState("");
 
@@ -16,7 +15,11 @@ const Input = () => {
       desc: newDesc,
     };
 
-    const updatedToDoArr = [...allTodos, newToDoItem];
+    // Get current todos from localStorage
+    const currentTodos = JSON.parse(localStorage.getItem("todolist")) || [];
+    const updatedToDoArr = [...currentTodos, newToDoItem];
+    
+    // Update the state in parent
     setAllTodos(updatedToDoArr);
     localStorage.setItem("todolist", JSON.stringify(updatedToDoArr));
 
@@ -26,51 +29,51 @@ const Input = () => {
   };
 
   return (
-    <div className="flex flex-row items-center p-5 mt-10 max-lg:items-center max-lg:w-full max-lg:ml-14 max-sm:-ml-0  w-full">
+    <div className="flex flex-col items-center p-5 mt-10 w-full">
       <form
-        className="flex flex-row max-sm:flex-col max-lg:items-center max-lg:w-full"
+        className="flex flex-col w-full space-y-4"
         onSubmit={(e) => {
           e.preventDefault();
           handleAddToDo();
         }}
       >
         <div className="flex flex-col">
-          <label>Title</label>
+          <label htmlFor="titleInput" className="text-sm">Title</label>
           <input
+            id="titleInput" // Link this with the label
             type="text"
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
-            className="w-80 max-sm:w-80 max-lg:w-64 max-lg:text-xs rounded bg-neutral-900 text-sm h-8"
+            className="w-full max-w-md p-2 rounded bg-neutral-900 text-sm h-10"
             placeholder="Enter your task here"
           />
         </div>
-        <div className="flex flex-col ml-3">
-          <label className="max-sm:-ml-1">Description</label>
+        <div className="flex flex-col">
+          <label htmlFor="descInput" className="text-sm">Description</label>
           <input
+            id="descInput" // Link this with the label
             type="text"
             value={newDesc}
             onChange={(e) => setNewDesc(e.target.value)}
-            className="w-80 max-sm:w-80 max-lg:w-64 max-lg:mr-2 max-lg:text-xs rounded bg-neutral-900 text-sm h-8 max-sm:-ml-1"
+            className="w-full max-w-md p-2 rounded bg-neutral-900 text-sm h-10"
             placeholder="Description"
           />
         </div>
-        <div className="max-lg:flex max-lg:flex-row space-x-4 flex">
-          <div className="input-item mt-5 ml-16 max-lg:ml-0 max-lg:flex max-lg:flex-row">
-            <button
-              type="submit"
-              className="text-center bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-4 rounded-md"
-            >
-              Add
-            </button>
-          </div>
-
+        <div className="flex flex-col space-y-2 ml-4">
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 w-11/12 rounded-md text-white"
+          >
+            Add
+          </button>
           <button
             type="button"
             onClick={() => {
               setNewTitle("");
               setNewDesc("");
+              document.getElementById("titleInput").focus(); // Focus on title input after reset
             }}
-            className="mt-5 py-1 px-2 border rounded-md ml-2 max-lg:ml-0"
+            className="py-1 px-1 border rounded-md bg-neutral-800 w-11/12 text-white"
           >
             Reset
           </button>
