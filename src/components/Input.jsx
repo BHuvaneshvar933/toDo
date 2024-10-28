@@ -15,15 +15,15 @@ const Input = ({ setAllTodos }) => {
       desc: newDesc,
     };
 
-    // Get current todos from localStorage
+   
     const currentTodos = JSON.parse(localStorage.getItem("todolist")) || [];
     const updatedToDoArr = [...currentTodos, newToDoItem];
     
-    // Update the state in parent
+    
     setAllTodos(updatedToDoArr);
     localStorage.setItem("todolist", JSON.stringify(updatedToDoArr));
 
-    // Clear input fields after adding a todo
+   
     setNewTitle("");
     setNewDesc("");
   };
