@@ -51,7 +51,7 @@ const Input = ({ setAllTodos }) => {
         <div className="flex flex-col">
           <label htmlFor="descInput" className="text-sm">Description</label>
           <input
-            id="descInput" // Link this with the label
+            id="descInput"
             type="text"
             value={newDesc}
             onChange={(e) => setNewDesc(e.target.value)}
